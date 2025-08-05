@@ -1,6 +1,6 @@
 import * as dao from "./dao.js";
 
-export default function AssignmentRoutes(app) {
+export default function EnrollmentsRoutes(app) {
 
   app.get("/api/enrollments/:userId", (req, res) => {
     const { userId } = req.params;

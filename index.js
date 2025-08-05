@@ -8,6 +8,7 @@ import UserRoutes from "./Kambaz/Users/routes.js";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
 import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
+import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
 
 const app = express();
 app.use(
@@ -36,7 +37,7 @@ app.use(express.json());
 Lab5(app);
 UserRoutes(app);
 CourseRoutes(app);
-// EnrollmentRoutes(app);
+EnrollmentsRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
 
