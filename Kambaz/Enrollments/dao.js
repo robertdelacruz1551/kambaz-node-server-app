@@ -10,7 +10,7 @@ export function findMyEnrollment(userId) {
 
 export function enrollUserInCourse(userId, courseId) {
   const { enrollments } = Database;
-  enrolled = enrollments.some(
+  const enrolled = enrollments.some(
     course => ( course.user === userId &&
                 course.course === courseId )
   )
