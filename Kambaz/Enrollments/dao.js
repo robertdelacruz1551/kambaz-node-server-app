@@ -1,14 +1,21 @@
 import Database from "../Database/index.js";
 import { v4 as uuidv4 } from "uuid";
 
+
+export function findMyEnrollment(userId) {
+  const { enrollments } = Database;
+  enrolled = enrollments.find((course) => course.user === userId);
+  return enrolled;
+}
+
 export function enrollUserInCourse(userId, courseId) {
   const { enrollments } = Database;
   enrolled = enrollments.some(
-    enrollment => ( enrollment.user === userId &&
-                    enrollment.course === courseId )
+    course => ( course.user === userId &&
+                course.course === courseId )
   )
   if (!enrolled) {
-    enrollments.push({ _id: uuidv4(), user: userId, course: courseId });
+    Database.enrollments.push({ _id: uuidv4(), user: userId, course: courseId });
   }
 }
 
