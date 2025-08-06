@@ -4,8 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export function findMyEnrollment(userId) {
   const { enrollments } = Database;
-  enrolled = enrollments.find((course) => course.user === userId);
-  return enrolled;
+  return enrollments.filter((course) => course.user === userId);
 }
 
 export function enrollUserInCourse(userId, courseId) {

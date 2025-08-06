@@ -64,8 +64,13 @@ export default function UserRoutes(app) {
       }
       userId = currentUser._id;
     }
-    const courses = courseDao.findCoursesForEnrolledUser(userId);
-    res.json(courses);
+    const courses  = courseDao.findCoursesForEnrolledUser(userId);
+    const enrollments = enrollmentsDao.findMyEnrollment(userId);
+    const allcourses = courses.map(course => {
+      const enrolled = enrollments.some(enrollment => enrollment.course === course.course);
+      return { ...course, enrolled: enrolled };
+    });
+    res.json(allcourses);
   };
 
   const createCourse = (req, res) => {
