@@ -3,6 +3,7 @@ import cors from "cors";
 import session from "express-session";
 import "dotenv/config";
 import mongoose from "mongoose";
+import morgan from "morgan";
 
 import Lab5 from "./Lab5/index.js";
 import UserRoutes from "./Kambaz/Users/routes.js";
@@ -15,6 +16,8 @@ const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
 mongoose.connect(CONNECTION_STRING);
 
 const app = express();
+app.use(morgan('dev'));
+
 app.use(
   cors({
    credentials: true,
@@ -45,4 +48,8 @@ EnrollmentsRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
 
-app.listen(process.env.PORT || 4000)
+// app.listen(process.env.PORT || 4000)
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server running http://localhost:${PORT}`);
+});
