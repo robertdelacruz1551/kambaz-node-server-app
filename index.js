@@ -12,11 +12,13 @@ import ModuleRoutes from "./Kambaz/Modules/routes.js";
 import AssignmentRoutes from "./Kambaz/Assignments/routes.js";
 import EnrollmentsRoutes from "./Kambaz/Enrollments/routes.js";
 
-const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING;
-mongoose.connect(CONNECTION_STRING);
 
 const app = express();
 app.use(morgan('dev'));
+
+mongoose.connect(process.env.MONGO_CONNECTION_STRING)
+  // .then(() => console.log('Mongoose connected to MongoDB Atlas!'))
+  // .catch(err => console.error('Mongoose connection error:', err));
 
 app.use(
   cors({

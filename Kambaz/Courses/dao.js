@@ -4,10 +4,8 @@ import model from "./model.js";
 
 
 export function findAllCourses() {
- //   return Database.courses;
- return model.find();
+  return model.find({});
 }
-
 
 export function findCoursesForEnrolledUser(userId) {
   const { courses, enrollments } = Database;
