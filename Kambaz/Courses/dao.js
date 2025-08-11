@@ -20,11 +20,12 @@ export function createCourse(course) {
 }
 
 export function deleteCourse(courseId) {
-  const { courses, enrollments } = Database;
-  Database.courses = courses.filter((course) => course._id !== courseId);
-  Database.enrollments = enrollments.filter(
-    (enrollment) => enrollment.course !== courseId
-);}
+  // const { courses, enrollments } = Database;
+  // Database.courses = courses.filter((course) => course._id !== courseId);
+  // Database.enrollments = enrollments.filter(
+  //   (enrollment) => enrollment.course !== courseId);
+  return model.deleteOne({ _id: courseId });
+}
 
 export function updateCourse(courseId, courseUpdates) {
   return model.updateOne({ _id: courseId }, { $set: courseUpdates });
