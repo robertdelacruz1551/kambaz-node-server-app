@@ -16,18 +16,11 @@ export default function UserRoutes(app) {
       userId = currentUser._id;
     }
     const enrollments = await enrollmentsDao.findCoursesForUser(userId);
-    // const courses     = await courseDao.findAllCourses();
-    // const allcourses  = courses.map(course => {
-    //   const enrolled  = enrollments.some(enrollment => enrollment.course === course._id);
-    //   return { ...course, enrolled: enrolled };
-    // });
-    // // console.log(enrollments);
     res.json(enrollments);
   };  
 
   const findCoursesForUser = async (req, res) => {
     const currentUser = req.session["currentUser"];
-    console.log(currentUser);
     if (!currentUser) {
       res.sendStatus(401);
       return;
@@ -103,7 +96,6 @@ export default function UserRoutes(app) {
   
   const signin = async (req, res) => {
     const { username, password } = req.body;
-    console.log("In signin route");
     const currentUser = await dao.findUserByCredentials(username, password);
     if (currentUser) {
       req.session["currentUser"] = currentUser;
