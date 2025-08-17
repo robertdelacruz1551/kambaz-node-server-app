@@ -6,8 +6,8 @@ export async function createAttempt(quiz) {
   return model.create(quiz);
 }
 
-export async function findAttempts(courseId) {
-  return model.find({ 'details.course': courseId });
+export async function findAttempts(quizId, userId) {
+  return model.find({ quizId: quizId, userId: userId });
 }
 
 export async function findAttempt(attemptId) {

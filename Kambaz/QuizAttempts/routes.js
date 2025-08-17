@@ -8,8 +8,8 @@ export default function QuizAttemptRoutes(app) {
 
   app.get("/api/quiz/:quizId/user/:userId/attempts", async (req, res) => {
     const { quizId, userId } = req.params;
-    const quizzes = await dao.findAttempts(quizId, userId);
-    res.send(quizzes);
+    const attempts = await dao.findAttempts(quizId, userId);
+    res.send(attempts);
   });
 
   app.get("/api/quiz/:quizId/attempt/:attemptId", async (req, res) => {
