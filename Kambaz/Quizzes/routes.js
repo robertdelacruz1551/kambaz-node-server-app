@@ -31,4 +31,9 @@ export default function QuizzesRoutes(app) {
     const quiz = await dao.createQuiz(req.body);
     res.send(quiz);
   }); 
+
+  app.post("/api/quiz/:quizId/submit", async (req, res) => {
+    const quiz = await dao.submitGradedQuiz(req.body);
+    res.send(quiz);
+  }); 
 }
