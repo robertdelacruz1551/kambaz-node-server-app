@@ -19,8 +19,6 @@ const app = express();
 app.use(morgan('dev'));
 
 mongoose.connect(process.env.MONGO_CONNECTION_STRING)
-  // .then(() => console.log('Mongoose connected to MongoDB Atlas!'))
-  // .catch(err => console.error('Mongoose connection error:', err));
 
 app.use(
   cors({

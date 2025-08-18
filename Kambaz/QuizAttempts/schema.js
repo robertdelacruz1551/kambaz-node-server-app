@@ -25,10 +25,10 @@ const attemptSchema = new mongoose.Schema(
       oneQuestion: Boolean,
       webcam: Boolean,
       lock: Boolean,
-      due: String, 
+      due: Date, 
       available: {
-        from: String, 
-        to: String,
+        from: Date, 
+        to: Date,
       }
     },
     questions: [{}]
