@@ -9,6 +9,7 @@ const attemptSchema = new mongoose.Schema(
     final:  { type: Boolean, default: false },
     created: { type: String, default: Date().toString() },
     updated: String,
+    score: Number,
     details: {
       title: String, 
       course: { type: String, ref: "CourseModel" }, 
